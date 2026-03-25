@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>ShopNest Online Store</title>
+  <link rel="stylesheet" href="style.css"/>
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;1,300&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+</head>
+<body>
+
+<!-- ========== NAVBAR ========== -->
+<nav class="navbar" id="navbar">
+  <div class="nav-container">
+    <div class="nav-logo">
+      <span class="logo-icon">🛍</span>
+      <span class="logo-text">Shop<em>Nest</em></span>
+    </div>
+
+    <div class="nav-search">
+      <i class="fa fa-search search-icon"></i>
+      <input type="text" id="searchInput" placeholder="Search products…" autocomplete="off"/>
+      <button class="search-clear" id="searchClear" onclick="clearSearch()">×</button>
+    </div>
+
+    <div class="nav-actions">
+      <button class="nav-btn" id="wishlistBtn" title="Wishlist">
+        <i class="fa fa-heart"></i>
+        <span class="badge" id="wishlistCount">0</span>
+      </button>
+      <button class="nav-btn cart-btn" id="cartBtn" onclick="toggleCart()" title="Cart">
+        <i class="fa fa-shopping-cart"></i>
+        <span class="badge" id="cartCount">0</span>
+      </button>
+      <button class="hamburger" id="hamburger" onclick="toggleMobileMenu()">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+
+  <!-- Mobile search -->
+  <div class="mobile-search">
+    <i class="fa fa-search"></i>
+    <input type="text" id="mobileSearchInput" placeholder="Search products…"/>
+  </div>
+</nav>
+
+<!-- ========== HERO BANNER ========== -->
+<section class="hero">
+  <div class="hero-slides" id="heroSlides">
+
+    <div class="hero-slide active" style="background: linear-gradient(120deg,#0f2027,#203a43,#2c5364)">
+      <div class="hero-content">
+        <div class="hero-tag">⚡ Flash Sale — Up to 60% Off</div>
+        <h1 class="hero-title">Next-Gen<br/><em>Electronics</em></h1>
+        <p class="hero-sub">Laptops, Phones, Cameras & more</p>
+        <button class="hero-cta" onclick="filterCategory('Electronics')">Shop Now <i class="fa fa-arrow-right"></i></button>
+      </div>
+      <div class="hero-visual">🖥️</div>
+    </div>
+
+    <div class="hero-slide" style="background: linear-gradient(120deg,#1a1a2e,#16213e,#0f3460)">
+      <div class="hero-content">
+        <div class="hero-tag">👗 New Arrivals</div>
+        <h1 class="hero-title">Trendy<br/><em>Fashion</em></h1>
+        <p class="hero-sub">Clothing, Shoes & Accessories</p>
+        <button class="hero-cta" onclick="filterCategory('Fashion')">Explore Now <i class="fa fa-arrow-right"></i></button>
+      </div>
+      <div class="hero-visual">👗</div>
+    </div>
+
+    <div class="hero-slide" style="background: linear-gradient(120deg,#0d1b2a,#1b263b,#415a77)">
+      <div class="hero-content">
+        <div class="hero-tag">🏠 Home Makeover</div>
+        <h1 class="hero-title">Smart<br/><em>Home</em></h1>
+        <p class="hero-sub">Appliances, Decor & Essentials</p>
+        <button class="hero-cta" onclick="filterCategory('Home Appliances')">Shop Now <i class="fa fa-arrow-right"></i></button>
+      </div>
+      <div class="hero-visual">🏠</div>
+    </div>
+
+  </div>
+
+  <!-- Slide controls -->
+  <button class="slide-prev" onclick="changeSlide(-1)"><i class="fa fa-chevron-left"></i></button>
+  <button class="slide-next" onclick="changeSlide(1)"><i class="fa fa-chevron-right"></i></button>
+  <div class="slide-dots" id="slideDots">
+    <span class="dot active" onclick="goToSlide(0)"></span>
+    <span class="dot" onclick="goToSlide(1)"></span>
+    <span class="dot" onclick="goToSlide(2)"></span>
+  </div>
+</section>
+
+<!-- ========== STATS BAR ========== -->
+<div class="stats-bar">
+  <div class="stat-item"><i class="fa fa-truck"></i><span>Free Delivery over ₹499</span></div>
+  <div class="stat-item"><i class="fa fa-rotate-left"></i><span>Easy 30-Day Returns</span></div>
+  <div class="stat-item"><i class="fa fa-shield-halved"></i><span>Secure Payments</span></div>
+  <div class="stat-item"><i class="fa fa-headset"></i><span>24/7 Support</span></div>
+</div>
+
+<!-- ========== CATEGORY TABS ========== -->
+<section class="categories-section">
+  <div class="container">
+    <div class="section-header">
+      <h2 class="section-title">Shop by Category</h2>
+      <p class="section-sub">Explore our curated collections</p>
+    </div>
+    <div class="category-tabs" id="categoryTabs">
+      <button class="cat-tab active" data-cat="All" onclick="filterCategory('All')">
+        <span class="cat-icon">🛍</span> All Products
+      </button>
+      <button class="cat-tab" data-cat="Electronics" onclick="filterCategory('Electronics')">
+        <span class="cat-icon">⚡</span> Electronics
+      </button>
+      <button class="cat-tab" data-cat="Fashion" onclick="filterCategory('Fashion')">
+        <span class="cat-icon">👗</span> Fashion
+      </button>
+      <button class="cat-tab" data-cat="Home Appliances" onclick="filterCategory('Home Appliances')">
+        <span class="cat-icon">🏠</span> Home Appliances
+      </button>
+      <button class="cat-tab" data-cat="Books" onclick="filterCategory('Books')">
+        <span class="cat-icon">📚</span> Books
+      </button>
+      <button class="cat-tab" data-cat="Sports" onclick="filterCategory('Sports')">
+        <span class="cat-icon">🏃</span> Sports
+      </button>
+      <button class="cat-tab" data-cat="Beauty" onclick="filterCategory('Beauty')">
+        <span class="cat-icon">💄</span> Beauty
+      </button>
+    </div>
+  </div>
+</section>
+
+<!-- ========== MAIN CONTENT ========== -->
+<main class="main-content">
+  <div class="container">
+    <div class="content-layout">
+
+      <!-- SIDEBAR FILTERS -->
+      <aside class="sidebar" id="sidebar">
+        <div class="sidebar-header">
+          <h3><i class="fa fa-sliders"></i> Filters</h3>
+          <button class="clear-filters-btn" onclick="clearAllFilters()">Clear All</button>
+        </div>
+
+        <!-- Price Range -->
+        <div class="filter-group">
+          <h4 class="filter-title">Price Range</h4>
+          <div class="price-inputs">
+            <div class="price-input-wrap">
+              <span>₹</span>
+              <input type="number" id="priceMin" placeholder="Min" min="0" onchange="applyFilters()"/>
+            </div>
+            <span class="price-dash">—</span>
+            <div class="price-input-wrap">
+              <span>₹</span>
+              <input type="number" id="priceMax" placeholder="Max" onchange="applyFilters()"/>
+            </div>
+          </div>
+          <input type="range" id="priceSlider" min="0" max="100000" value="100000" class="range-slider" oninput="updatePriceSlider(this.value)"/>
+          <div class="price-range-labels">
+            <span>₹0</span>
+            <span id="sliderValue">₹1,00,000</span>
+          </div>
+          <!-- Quick price pills -->
+          <div class="price-pills">
+            <button class="price-pill" onclick="setPrice(0,500)">Under ₹500</button>
+            <button class="price-pill" onclick="setPrice(500,2000)">₹500–₹2K</button>
+            <button class="price-pill" onclick="setPrice(2000,10000)">₹2K–₹10K</button>
+            <button class="price-pill" onclick="setPrice(10000,100000)">₹10K+</button>
+          </div>
+        </div>
+
+        <!-- Rating Filter -->
+        <div class="filter-group">
+          <h4 class="filter-title">Minimum Rating</h4>
+          <div class="rating-filters">
+            <label class="rating-option">
+              <input type="radio" name="rating" value="0" checked onchange="applyFilters()"/>
+              <span class="rating-label"><span class="stars">★★★★★</span> All</span>
+            </label>
+            <label class="rating-option">
+              <input type="radio" name="rating" value="4" onchange="applyFilters()"/>
+              <span class="rating-label"><span class="stars">★★★★☆</span> 4+ Stars</span>
+            </label>
+            <label class="rating-option">
+              <input type="radio" name="rating" value="3" onchange="applyFilters()"/>
+              <span class="rating-label"><span class="stars">★★★☆☆</span> 3+ Stars</span>
+            </label>
+            <label class="rating-option">
+              <input type="radio" name="rating" value="2" onchange="applyFilters()"/>
+              <span class="rating-label"><span class="stars">★★☆☆☆</span> 2+ Stars</span>
+            </label>
+          </div>
+        </div>
+
+        <!-- Sort -->
+        <div class="filter-group">
+          <h4 class="filter-title">Sort By</h4>
+          <select id="sortSelect" class="sort-select" onchange="applyFilters()">
+            <option value="default">Default</option>
+            <option value="price-low">Price: Low to High</option>
+            <option value="price-high">Price: High to Low</option>
+            <option value="rating-high">Rating: High to Low</option>
+            <option value="name-az">Name: A → Z</option>
+          </select>
+        </div>
+
+        <!-- Availability -->
+        <div class="filter-group">
+          <h4 class="filter-title">Availability</h4>
+          <label class="checkbox-option">
+            <input type="checkbox" id="inStockOnly" onchange="applyFilters()"/>
+            <span>In Stock Only</span>
+          </label>
+          <label class="checkbox-option">
+            <input type="checkbox" id="onSaleOnly" onchange="applyFilters()"/>
+            <span>On Sale</span>
+          </label>
+        </div>
+      </aside>
+
+      <!-- PRODUCTS SECTION -->
+      <div class="products-section">
+
+        <!-- Toolbar -->
+        <div class="products-toolbar">
+          <div class="toolbar-left">
+            <span class="result-count" id="resultCount">Showing 0 products</span>
+            <div class="active-filters" id="activeFilters"></div>
+          </div>
+          <div class="toolbar-right">
+            <button class="mobile-filter-btn" onclick="toggleSidebar()">
+              <i class="fa fa-sliders"></i> Filters
+            </button>
+            <div class="view-toggle">
+              <button class="view-btn active" id="gridViewBtn" onclick="setView('grid')" title="Grid View">
+                <i class="fa fa-grip"></i>
+              </button>
+              <button class="view-btn" id="listViewBtn" onclick="setView('list')" title="List View">
+                <i class="fa fa-list"></i>
+              </button>
+            </div>
+            <select class="sort-select-inline" id="sortInline" onchange="syncSort(this.value)">
+              <option value="default">Sort: Default</option>
+              <option value="price-low">Price ↑</option>
+              <option value="price-high">Price ↓</option>
+              <option value="rating-high">Top Rated</option>
+            </select>
+          </div>
+        </div>
+
+        <!-- Product Grid -->
+        <div class="products-grid" id="productsGrid">
+          <!-- Populated by JS -->
+        </div>
+
+        <!-- No results -->
+        <div class="no-results" id="noResults" style="display:none;">
+          <div class="no-results-icon">🔍</div>
+          <h3>No Products Found</h3>
+          <p>Try adjusting your filters or search query.</p>
+          <button onclick="clearAllFilters()" class="hero-cta" style="margin-top:1rem;">Clear Filters</button>
+        </div>
+
+        <!-- Load More -->
+        <div class="load-more-wrap" id="loadMoreWrap" style="display:none;">
+          <button class="load-more-btn" id="loadMoreBtn" onclick="loadMore()">
+            Load More Products <i class="fa fa-chevron-down"></i>
+          </button>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</main>
+
+<!-- ========== CART SIDEBAR ========== -->
+<div class="cart-overlay" id="cartOverlay" onclick="toggleCart()"></div>
+<div class="cart-drawer" id="cartDrawer">
+  <div class="cart-header">
+    <h3>🛒 Your Cart</h3>
+    <button onclick="toggleCart()" class="cart-close">×</button>
+  </div>
+  <div class="cart-items" id="cartItems">
+    <div class="cart-empty">
+      <div style="font-size:3rem;">🛒</div>
+      <p>Your cart is empty</p>
+      <button onclick="toggleCart()" class="hero-cta" style="margin-top:1rem;font-size:0.85rem;padding:10px 22px;">Start Shopping</button>
+    </div>
+  </div>
+  <div class="cart-footer" id="cartFooter" style="display:none;">
+    <div class="cart-total">
+      <span>Subtotal</span>
+      <span id="cartTotal">₹0</span>
+    </div>
+    <button class="checkout-btn">Proceed to Checkout <i class="fa fa-arrow-right"></i></button>
+  </div>
+</div>
+
+<!-- ========== TOAST ========== -->
+<div class="toast" id="toast"></div>
+
+<!-- ========== FOOTER ========== -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-col">
+        <div class="footer-logo">🛍 ShopNest</div>
+        <p class="footer-desc">Your one-stop destination for quality products across all categories.</p>
+        <div class="social-links">
+          <a href="#"><i class="fab fa-instagram"></i></a>
+          <a href="#"><i class="fab fa-twitter"></i></a>
+          <a href="#"><i class="fab fa-facebook"></i></a>
+          <a href="#"><i class="fab fa-youtube"></i></a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h4>Categories</h4>
+        <ul>
+          <li><a href="#">Electronics</a></li>
+          <li><a href="#">Fashion</a></li>
+          <li><a href="#">Home Appliances</a></li>
+          <li><a href="#">Books</a></li>
+          <li><a href="#">Sports</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Support</h4>
+        <ul>
+          <li><a href="#">Help Center</a></li>
+          <li><a href="#">Track Order</a></li>
+          <li><a href="#">Returns</a></li>
+          <li><a href="#">Contact Us</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Newsletter</h4>
+        <p style="font-size:0.82rem;color:var(--text-muted);margin-bottom:0.8rem;">Get exclusive deals in your inbox.</p>
+        <div class="newsletter-form">
+          <input type="email" placeholder="your@email.com"/>
+          <button>Subscribe</button>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2026 ShopNest. </p>
+      <p>Built with Dipak@ </p>
+    </div>
+  </div>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
