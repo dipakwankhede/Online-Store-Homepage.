@@ -50,3 +50,163 @@ College: Sarswati College, Shegaon.
 * Enhance UI/UX design and responsiveness. Implement fully functional search feature.
 
 GitHub Backend Link:(https://github.com/dipakwankhede/Online-Store-Homepage..git)
+
+
+
+
+
+
+Daily Progress Report
+Day : 5
+Date: 1/04/2026 
+In Time: 7:00 pm
+Out Time: 09:45 pm
+Name: Dipak Wankhede.
+College: Sarswati College, Shegaon.
+
+* Final  Project Report.
+
+📌 Project Overview
+
+ShopNest is a fully responsive and interactive e-commerce user interface designed to simulate a real-world online shopping platform. This project focuses on delivering a smooth and modern user experience where users can browse products, apply filters, manage their cart, and explore different categories efficiently.
+
+The application is built using HTML, CSS, and Vanilla JavaScript, making it lightweight, fast, and easy to understand for beginners as well as intermediate developers. It demonstrates core frontend development concepts such as DOM manipulation, event handling, responsive layouts, and dynamic UI updates.
+
+🎯 Project Objective
+
+The main goal of this project is to:
+
+Provide a real-world e-commerce UI experience
+Practice frontend development skills
+Understand product filtering and sorting logic
+Build reusable and scalable UI components
+Learn how shopping cart systems work
+🚀 Key Features (Detailed)
+🧭 Smart Navigation System
+
+The navigation bar is designed to be user-friendly and responsive. It includes:
+
+A live search bar that helps users quickly find products
+A wishlist system to save favorite items
+A cart system that displays the number of selected items
+A mobile-friendly hamburger menu for smaller devices
+
+This ensures easy access to all major functionalities from any device.
+
+🎯 Interactive Hero Section
+
+The hero section uses a slider-based design to showcase:
+
+Promotional offers
+Featured categories
+Call-to-action buttons
+
+Users can manually navigate between slides or use buttons to explore specific categories instantly.
+
+🛒 Advanced Product Management
+
+The product section is dynamically controlled using JavaScript and includes:
+
+Real-time product rendering
+Grid and list layout switching
+Lazy loading ("Load More" functionality)
+
+This mimics how real e-commerce platforms handle large product datasets.
+
+🔍 Powerful Filtering System
+
+The filtering system allows users to refine product results based on:
+
+Price range (manual input + slider)
+Product ratings
+Availability (in stock / on sale)
+Sorting preferences (price, rating, name)
+
+This enhances usability and helps users find products quickly.
+
+🛍️ Shopping Cart Functionality
+
+The cart system is one of the core features of this project. It includes:
+
+Add/remove products from cart
+Dynamic subtotal calculation
+Slide-in cart drawer UI
+Empty cart handling
+
+This simulates a real shopping experience without backend integration.
+
+❤️ Wishlist System
+
+Users can mark products as favorites and view them later.
+The wishlist count updates dynamically, improving user engagement.
+
+📱 Fully Responsive Design
+
+The UI is designed to work seamlessly across:
+
+Mobile devices 📱
+Tablets 📲
+Desktops 💻
+
+Special care is taken for:
+
+Mobile filters
+Touch-friendly buttons
+Optimized layouts
+🛠️ Technologies Used
+Technology	Purpose
+HTML5	Structure of the website
+CSS3	Styling, layout, animations
+JavaScript	Dynamic functionality
+Font Awesome	Icons
+Google Fonts	Typography
+📁 Project Structure
+ShopNest/
+│── index.html      → Main UI structure
+│── style.css       → Styling and layout design
+│── script.js       → All dynamic logic and functionality
+│── README.md       → Project documentation
+⚙️ How to Run the Project
+Download or Clone the Repository
+git clone https://github.com/your-username/shopnest.git
+Open in VS Code
+Launch VS Code
+Open the project folder
+Run the Project
+Open index.html
+Use Live Server extension for best experience
+📜 Core Functional Logic
+
+This project uses JavaScript-based logic for handling:
+
+Product filtering and sorting
+Cart operations
+Wishlist management
+UI updates without page reload
+
+All interactions are handled dynamically using DOM manipulation.
+
+🎨 Design Philosophy
+
+The design of ShopNest follows:
+
+Minimalistic UI principles
+Clean typography
+Smooth user interactions
+Consistent color themes
+
+The goal is to create a visually appealing and easy-to-use shopping interface.
+
+🔮 Future Enhancements
+
+This project can be extended into a full-stack application by adding:
+
+🔐 User authentication (Login/Register system)
+🗄️ Backend using Spring Boot
+🧮 Database integration with MySQL
+💳 Payment gateway integration
+📦 Order management system
+🌐 API-based product data
+👨‍💻 Author
+
+GitHub Backend Link:(https://github.com/dipakwankhede/Online-Store-Homepage..git)
