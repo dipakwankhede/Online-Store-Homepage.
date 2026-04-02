@@ -58,9 +58,9 @@ GitHub Backend Link:(https://github.com/dipakwankhede/Online-Store-Homepage..git
 
 Daily Progress Report
 Day : 5
-Date: 1/04/2026 
-In Time: 7:00 pm
-Out Time: 09:45 pm
+Date: 1/05/2026 
+In Time: 9:00 pm
+Out Time: 11:45 pm
 Name: Dipak Wankhede.
 College: Sarswati College, Shegaon.
 
